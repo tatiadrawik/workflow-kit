@@ -2,7 +2,6 @@ import { AutomationEditor } from "@/components/automation-editor";
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 
-export const runtime = "edge";
 
 export default async function Automation({
   params,

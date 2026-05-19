@@ -4,7 +4,7 @@ import OpenAI from "openai";
 import { type BlogPost } from "../supabase/types";
 
 import { loadBlogPost } from "../loaders/blog-post";
-import { createClient } from "../supabase/server";
+import { createClient } from "../supabase/service";
 import { actions } from "./workflowActions";
 import { inngest } from "./client";
 

@@ -9,7 +9,7 @@ export default async function Automation({
 }: {
   params: { id: string };
 }) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: workflow } = await supabase
     .from("workflows")
     .select("*")

@@ -1,6 +1,6 @@
 import { Workflow } from "@inngest/workflow-kit";
 
-import { createClient } from "../supabase/server";
+import { createClient } from "../supabase/service";
 
 export async function loadWorkflow(event: { name: string }) {
   const supabase = createClient();

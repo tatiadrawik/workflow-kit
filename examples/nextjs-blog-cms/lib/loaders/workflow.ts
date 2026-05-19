@@ -10,5 +10,5 @@ export async function loadWorkflow(event: { name: string }) {
     .eq("trigger", event.name)
     .eq("enabled", true)
     .single();
-  return (data && data.workflow) as unknown as Workflow;
+return (data as any)?.workflow as Workflow;
 }

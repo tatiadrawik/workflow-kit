@@ -1,4 +1,5 @@
 "use server";
+
 import { inngest } from "@/lib/inngest/client";
 import { Json } from "@/lib/supabase/database.types";
 import { createClient } from "@/lib/supabase/server";
@@ -6,7 +7,8 @@ import { type Workflow } from "@/lib/supabase/types";
 
 export const sendBlogPostToReview = async (id: string) => {
   const supabase = await createClient();
-  await supabase
+
+  await (supabase as any)
     .from("blog_posts")
     .update({
       status: "under review",
@@ -33,7 +35,8 @@ export const approveBlogPostAiSuggestions = async (id: string) => {
 
 export const publishBlogPost = async (id: string) => {
   const supabase = await createClient();
-  await supabase
+
+  await (supabase as any)
     .from("blog_posts")
     .update({
       status: "published",
@@ -48,9 +51,11 @@ export const publishBlogPost = async (id: string) => {
     },
   });
 };
+
 export const updateWorkflow = async (workflow: Workflow) => {
   const supabase = await createClient();
-  await supabase
+
+  await (supabase as any)
     .from("workflows")
     .update({
       workflow: workflow.workflow as unknown as Json,
@@ -58,9 +63,13 @@ export const updateWorkflow = async (workflow: Workflow) => {
     .eq("id", workflow.id);
 };
 
-export const toggleWorkflow = async (workflowId: number, enabled: boolean) => {
+export const toggleWorkflow = async (
+  workflowId: number,
+  enabled: boolean
+) => {
   const supabase = await createClient();
-  await supabase
+
+  await (supabase as any)
     .from("workflows")
     .update({
       enabled,

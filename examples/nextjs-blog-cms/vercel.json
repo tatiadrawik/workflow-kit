@@ -1,3 +1,0 @@
-{
-  "buildCommand": "cd ../.. && pnpm install --no-optional && cd examples/nextjs-blog-cms && pnpm build"
-}
